@@ -51,6 +51,9 @@ $( document ).ready(function() {
     return "<a class='button " + state + "'>" + text + "</div>";
   });
 
+  
+  
+  console.log("Does the maps fucking work?");
 
 
 
