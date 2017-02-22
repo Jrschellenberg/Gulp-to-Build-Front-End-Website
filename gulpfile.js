@@ -10,10 +10,8 @@ const gulp = require('gulp'),
 			sass = require('gulp-sass'),
 			maps = require('gulp-sourcemaps'),
 			del = require('del'),
-			useref = require('gulp-useref'),
 			imageMin = require('gulp-imagemin'),
-			browserSync = require('browser-sync').create(),
-			csso = require('gulp-csso');     //implement this
+			browserSync = require('browser-sync').create();
 
 
 
@@ -54,7 +52,7 @@ gulp.task('styles', function(){
 /*
 Task to map, concat, compress and place files into dist folder with mapping to original js.
  */
-gulp.task('scripts', function(){
+gulp.task('scripts', ['clean'], function(){
 	return gulp.src([
 		options.src + '/js/circle/autogrow.js',
 		options.src + '/js/circle/circle.js'])
@@ -66,7 +64,7 @@ gulp.task('scripts', function(){
 		.pipe(gulp.dest(options.dist + '/scripts'));
 });
 
-gulp.task('js-watch', ['scripts'], function(){
+gulp.task('js-watch', ['build'], function(){
 	return browserSync.reload();	
 });
 
@@ -94,15 +92,15 @@ gulp.task('watch', ['build'], function(){
 	gulp.watch(options.src + '/js/**', ['js-watch']);
 });
 
-gulp.task('build', ['clean'], function(){
-	gulp.src([
+gulp.task('build', ['scripts', 'styles', 'images'], function(){
+	return gulp.src([
 			options.src + "/icons/**",
 			options.src + "/index.html"
 		], { base: './'+options.src})
 		.pipe(gulp.dest(options.dist));
-	gulp.start('scripts');
-	gulp.start('styles');
-	return gulp.start('images');
+	//gulp.start('scripts');
+	//gulp.start('styles');
+	//return gulp.start('images');
 });
 
 gulp.task('default', ['build']);
