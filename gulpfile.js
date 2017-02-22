@@ -98,6 +98,8 @@ gulp.task('build', ['scripts', 'styles', 'images'], function(){
 			options.src + "/index.html"
 		], { base: './'+options.src})
 		.pipe(gulp.dest(options.dist));
+	
+	//These are apparently going to become deprecated
 	//gulp.start('scripts');
 	//gulp.start('styles');
 	//return gulp.start('images');
