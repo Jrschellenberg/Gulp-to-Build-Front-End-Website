@@ -55,7 +55,7 @@ $( document ).ready(function() {
   
   console.log("The site doesn't map on init call!! :( but does if you change the js file.");
   
-  console.log("testasdfasdfassdfdsfdsffsdf");
+  console.log("tessfsdfs");
 
 
 
