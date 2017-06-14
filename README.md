@@ -5,4 +5,4 @@ A project that uses gulp to add productivity efficiency to workflow by automatin
 - minifying files
 - compiling SCSS into CSS
 - generating JavaScript and Css source maps
-- Compress JPEG or PNG files
+- Compressing JPEG or PNG files
